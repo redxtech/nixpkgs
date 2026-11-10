@@ -18,8 +18,11 @@
   glib-networking,
   gtk3,
   libsoup_3,
+  libayatana-appindicator,
   pango,
   openssl,
+  aws-lc,
+  sqlite,
   bzip2,
   gst_all_1,
   makeDesktopItem,
@@ -28,19 +31,19 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "deadlock-mod-manager";
-  version = "1.1.0";
+  version = "2.3.0";
 
   src = fetchFromGitHub {
     owner = "deadlock-mod-manager";
     repo = "deadlock-mod-manager";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-TqMChiww+Do16T3rJDkRIjILg/DuWx0tphGeQiMSHkA=";
+    hash = "sha256-4z9nwH4otPBZKHdl6Gc+F8UpIhLudWQS3SCcY0MTfQI=";
   };
 
   cargoRoot = "apps/desktop";
   buildAndTestSubdir = finalAttrs.cargoRoot;
 
-  cargoHash = "sha256-/Y0f0FRv3DNfoxAbf9FGLTQ6ZplGrD40HRpHf1qsMDE=";
+  cargoHash = "sha256-7v8ItwFITLqUTY1pin5LQHKS8by9Hi3dxw2ZdF8tcMk=";
 
   nativeBuildInputs = [
     rustPlatform.cargoSetupHook
@@ -61,8 +64,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     glib-networking
     gtk3
     libsoup_3
+    libayatana-appindicator
     pango
     openssl
+    aws-lc
+    sqlite
     bzip2
     desktop-file-utils
     gst_all_1.gstreamer
@@ -81,7 +87,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     pnpm = pnpm_11;
     fetcherVersion = 4;
     sourceRoot = "source";
-    hash = "sha256-ZxlP6zOwY9Fxa4BCqnUoCmci3lviHn7H3HU5SnmdrSU=";
+    hash = "sha256-qgT14GNFoBCNMOIUWkmcuTYyMJ2nPtpuZ/+VNB2YwC8=";
   };
 
   patches = [
